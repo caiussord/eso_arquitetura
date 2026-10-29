@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:?Copie .env.example para .env e defina a senha}
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Defina a senha root no .env}
+    volumes:
+      - db_data:/var/lib/mysql
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: wordpress
+      ESO_SMTP_HOST: mailpit
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./wp-content/themes/eso-arquitetura:/var/www/html/wp-content/themes/eso-arquitetura:ro
+      - ./wp-content/plugins/eso-core:/var/www/html/wp-content/plugins/eso-core:ro
+  mailpit:
+    image: axllent/mailpit:v1.27
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8025:8025"
+volumes:
+  db_data:
+  wordpress_data:
