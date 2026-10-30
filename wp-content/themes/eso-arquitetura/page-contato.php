@@ -11,14 +11,14 @@ $contact_status = sanitize_key( wp_unslash( $_GET['envio'] ?? '' ) ); ?>
 <section class="page-hero">
 	<div class="container"><span class="eyebrow">04 / Contato</span>
 		<h1>Vamos começar<br>uma <em>conversa.</em></h1>
-		<p>Compartilhe sua ideia. Este formulário integra um site demonstrativo; configure um endereço de e-mail e SMTP antes de usá-lo em produção.</p>
+		<p>Conte um pouco sobre o espaço, o que você imagina e em que etapa está o projeto.</p>
 	</div>
 </section>
 <section class="section">
 	<div class="container contact-grid">
 		<div class="contact-aside"><span class="eyebrow">O primeiro passo</span>
 			<h2>Conte sobre o espaço que você imagina.</h2>
-			<p>Os dados enviados serão encaminhados ao e-mail do administrador do WordPress.</p>
+			<p>Não precisa ter tudo definido. Descreva sua ideia, mesmo que ela ainda esteja no começo.</p>
 			<?php
 			$email = get_theme_mod( 'eso_email', '' );
 			if ( is_email( $email ) ) :
@@ -28,7 +28,7 @@ $contact_status = sanitize_key( wp_unslash( $_GET['envio'] ?? '' ) ); ?>
 			if ( get_theme_mod( 'eso_whatsapp' ) ) :
 				?>
 			<a class="text-link" href="<?php echo esc_url( eso_whatsapp_url() ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp em nova aba">Conversar pelo WhatsApp ↗</a><?php endif; ?>
-			<p class="demo-note">ESO Arquitetura é uma marca fictícia. Nenhum endereço ou telefone real é exibido nesta demonstração.</p>
+			<p class="demo-note">Este é um projeto de portfólio. A ESO Arquitetura e os projetos apresentados são conceituais.</p>
 		</div>
 		<form id="formulario" class="contact-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" data-contact-form>
 			<?php
@@ -38,7 +38,7 @@ $contact_status = sanitize_key( wp_unslash( $_GET['envio'] ?? '' ) ); ?>
 				<?php
 				echo esc_html(
 					match ( $contact_status ) {
-						'sucesso' => 'Mensagem processada. Obrigado pelo contato.',
+						'sucesso' => 'Mensagem enviada. Obrigado pelo contato.',
 						'limite' => 'Aguarde um minuto antes de tentar novamente.',
 						'erro' => 'Não foi possível enviar. Tente novamente mais tarde.',
 						default => 'Confira os campos e tente novamente.' }
