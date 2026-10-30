@@ -41,7 +41,7 @@ get_header(); ?>
 			$projects = new WP_Query(
 				array(
 					'post_type'      => 'projeto',
-					'posts_per_page' => 3,
+					'posts_per_page' => 7,
 					'orderby'        => 'date',
 					'order'          => 'ASC',
 				)

@@ -197,10 +197,20 @@ function eso_activate_core(): void {
 			);
 		}
 	}
+	eso_seed_projects();
+	update_option( 'eso_project_seed_version', '2' );
+}
+
+/** Adiciona projetos demonstrativos que ainda não existem. */
+function eso_seed_projects(): void {
 	$projects = array(
 		array( 'Casa Horizonte', 'Residencial', 'Interior de São Paulo · cenário fictício', '2025', '280 m²', 'Uma investigação conceitual sobre luz, privacidade e continuidade entre interior e jardim.' ),
 		array( 'Pátio Interior', 'Interiores', 'Curitiba · cenário fictício', '2024', '145 m²', 'Ambientes essenciais, materiais honestos e uma circulação que convida a permanecer.' ),
 		array( 'Pavilhão Entrelinhas', 'Corporativo', 'Belo Horizonte · cenário fictício', '2026', '420 m²', 'Um estudo de espaços de encontro, trabalho e pausa em torno de um eixo aberto.' ),
+		array( 'Casa Madeira', 'Residencial', 'Campinas · cenário fictício', '2026', '310 m²', 'Volumes claros, textura natural e jardim criam uma chegada acolhedora.' ),
+		array( 'Refúgio Vertical', 'Interiores', 'Serra da Mantiqueira · cenário fictício', '2025', '165 m²', 'Uma escada aberta conecta os espaços e valoriza a luz em um interior de madeira.' ),
+		array( 'Ateliê Verde', 'Corporativo', 'Porto Alegre · cenário fictício', '2026', '380 m²', 'Áreas de encontro e vegetação compõem um ambiente de trabalho mais leve.' ),
+		array( 'Pátio de Reflexos', 'Arquitetura', 'Brasília · cenário fictício', '2024', '260 m²', 'Água, sombra e planos de pedra organizam um espaço de pausa e contemplação.' ),
 	);
 	foreach ( $projects as [$title, $type, $place, $year, $area, $copy] ) {
 		if ( eso_find_post( $title, 'projeto' ) ) {
@@ -227,3 +237,15 @@ function eso_activate_core(): void {
 		}
 	}
 }
+
+add_action(
+	'init',
+	static function (): void {
+		if ( '2' === get_option( 'eso_project_seed_version' ) ) {
+			return;
+		}
+		eso_seed_projects();
+		update_option( 'eso_project_seed_version', '2' );
+	},
+	20
+);

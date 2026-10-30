@@ -53,4 +53,4 @@
 └───────────────────────┘
 ```
 
-O hero, a grade editorial e o CTA seguem a direção do briefing sem reproduzir uma composição de terceiro. As fotografias são referências licenciadas; os cases são identificados como conceituais.
+O hero, a grade editorial e o CTA seguem a direção do briefing sem reproduzir uma composição de terceiro. A grade de projetos foi ampliada para sete cards; o diagrama acima mostra apenas sua composição inicial. As fotografias são referências licenciadas; os cases são identificados como conceituais.

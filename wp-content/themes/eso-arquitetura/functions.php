@@ -117,6 +117,10 @@ function eso_project_image( int $id ): string {
 		'casa-horizonte'       => 'casa-horizonte.jpg',
 		'patio-interior'       => 'interior.jpg',
 		'pavilhao-entrelinhas' => 'pavilhao.jpg',
+		'casa-madeira'         => 'casa-madeira.jpg',
+		'refugio-vertical'     => 'refugio-vertical.jpg',
+		'atelie-verde'         => 'atelier-verde.jpg',
+		'patio-de-reflexos'    => 'patio-reflexos.jpg',
 	);
 	$slug     = get_post_field( 'post_name', $id );
 	return eso_image( $fallback[ $slug ] ?? 'hero.jpg' );
