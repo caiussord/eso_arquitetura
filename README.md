@@ -25,10 +25,6 @@ O código do tema e do plugin fica neste repositório. Em outra instalação do 
 
 **Nesta máquina**, o site `eso-arquitetura` já foi criado no Local. As pastas do tema e do plugin estão ligadas diretamente ao repositório, o tema e o plugin estão ativos, o WordPress está em português do Brasil e os links permanentes foram configurados. Abra `http://eso-arquitetura.local/` enquanto o site estiver iniciado no Local. A senha do administrador é a que foi definida durante a criação do site no aplicativo.
 
-### Ambiente Docker anterior (opcional)
-
-O `compose.yaml` preserva o ambiente usado para a primeira verificação. Para iniciá-lo, copie `.env.example` para `.env`, troque as senhas e execute `docker compose up -d`. Ele serve em `http://localhost:8080` e usa Mailpit em `http://localhost:8025`. O Local é o fluxo recomendado para continuar o projeto.
-
 As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca do WordPress, use **Imagem destacada** em cada projeto. O texto, metadados e galerias são editáveis no painel. A Política de Privacidade pode ser substituída pelo editor da página. As demais páginas fixas possuem templates próprios; a edição do texto principal delas requer adaptação dos templates.
 
 ## Preparar para publicação
@@ -45,4 +41,4 @@ As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca 
 - `wp-content/plugins/eso-core/`: dados estruturados e endpoint do formulário.
 - `docs/`: referências de conteúdo e licenças das imagens.
 
-O core do WordPress, banco, uploads e segredos não são versionados. A instalação no Local foi verificada em `http://eso-arquitetura.local/`, incluindo a entrega de uma mensagem fictícia ao Mailpit. Ainda não há link público nem capturas da interface versionadas. A instalação Docker anterior usa o usuário `eso-admin` e guarda a senha gerada em `.env` (arquivo ignorado pelo Git).
+O core do WordPress, banco, uploads e segredos não são versionados. A instalação no Local foi verificada em `http://eso-arquitetura.local/`, incluindo a entrega de uma mensagem fictícia ao Mailpit. Ainda não há link público nem capturas da interface versionadas.

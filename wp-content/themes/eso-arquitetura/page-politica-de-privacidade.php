@@ -1,4 +1,36 @@
-<?php get_header(); ?>
-<section class="page-hero"><div class="container"><span class="eyebrow">Informações legais</span><h1>Política de <em>Privacidade.</em></h1><p>Como os dados do formulário demonstrativo são tratados.</p></div></section>
-<section class="section"><div class="container legal-content"><?php $policy = get_post_field('post_content', get_queried_object_id()); if (trim($policy)): echo apply_filters('the_content', $policy); else: ?><p><strong>Última atualização:</strong> 29/10/2026.</p><h2>Sobre esta demonstração</h2><p>ESO Arquitetura é uma marca fictícia. Este site demonstra uma estrutura de contato para um escritório de arquitetura. O responsável pela instalação deve adaptar esta política antes de publicar ou receber dados reais.</p><h2>Dados coletados</h2><p>Ao enviar o formulário, são recebidos nome, e-mail, telefone opcional, tipo de serviço e mensagem. O endereço IP é usado temporariamente para limitar envios repetidos. O consentimento é solicitado antes do envio.</p><h2>Finalidade e retenção</h2><p>Os dados são enviados ao e-mail do administrador do WordPress exclusivamente para responder ao contato. O site não grava as mensagens em uma tabela própria. A retenção na caixa de e-mail depende das configurações do serviço de e-mail utilizado pelo responsável pela instalação.</p><h2>Compartilhamento e direitos</h2><p>O serviço de e-mail configurado para esta instalação poderá processar a mensagem. Para solicitar acesso, correção ou exclusão dos seus dados, contate o endereço público configurado pelo responsável pelo site. Se nenhum endereço estiver configurado, não envie informações pessoais pelo formulário.</p><h2>Cookies</h2><p>O WordPress pode usar cookies necessários para administração e autenticação. Esta implementação não inclui ferramenta de análise de visitantes ou publicidade.</p><?php endif; ?></div></section>
+<?php
+/**
+ * Página da política de privacidade.
+ *
+ * @package ESO_Arquitetura
+ */
+
+get_header(); ?>
+<section class="page-hero">
+	<div class="container"><span class="eyebrow">Informações legais</span>
+		<h1>Política de <em>Privacidade.</em></h1>
+		<p>Como os dados do formulário demonstrativo são tratados.</p>
+	</div>
+</section>
+<section class="section">
+	<div class="container legal-content">
+		<?php
+		$policy = get_post_field( 'post_content', get_queried_object_id() );
+		if ( trim( $policy ) ) :
+			echo apply_filters( 'the_content', $policy ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Conteúdo HTML filtrado pelo WordPress.
+		else :
+			?>
+		<p><strong>Última atualização:</strong> 29/10/2026.</p>
+		<h2>Sobre esta demonstração</h2>
+		<p>ESO Arquitetura é uma marca fictícia. Este site demonstra uma estrutura de contato para um escritório de arquitetura. O responsável pela instalação deve adaptar esta política antes de publicar ou receber dados reais.</p>
+		<h2>Dados coletados</h2>
+		<p>Ao enviar o formulário, são recebidos nome, e-mail, telefone opcional, tipo de serviço e mensagem. O endereço IP é usado temporariamente para limitar envios repetidos. O consentimento é solicitado antes do envio.</p>
+		<h2>Finalidade e retenção</h2>
+		<p>Os dados são enviados ao e-mail do administrador do WordPress exclusivamente para responder ao contato. O site não grava as mensagens em uma tabela própria. A retenção na caixa de e-mail depende das configurações do serviço de e-mail utilizado pelo responsável pela instalação.</p>
+		<h2>Compartilhamento e direitos</h2>
+		<p>O serviço de e-mail configurado para esta instalação poderá processar a mensagem. Para solicitar acesso, correção ou exclusão dos seus dados, contate o endereço público configurado pelo responsável pelo site. Se nenhum endereço estiver configurado, não envie informações pessoais pelo formulário.</p>
+		<h2>Cookies</h2>
+		<p>O WordPress pode usar cookies necessários para administração e autenticação. Esta implementação não inclui ferramenta de análise de visitantes ou publicidade.</p><?php endif; ?>
+	</div>
+</section>
 <?php get_footer(); ?>
