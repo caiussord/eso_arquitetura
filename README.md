@@ -1,34 +1,41 @@
 # ESO Arquitetura
 
-Site institucional em WordPress para a ESO Arquitetura. Desenvolvi um tema próprio para a interface e um plugin para organizar projetos, serviços, áreas de atuação e o formulário de contato. O site já funciona no Local e pode ser editado pelo painel do WordPress.
+Site institucional de arquitetura feito em WordPress. A ideia foi criar uma presença digital que mostrasse o trabalho do escritório com clareza e deixasse o caminho até o contato simples para quem visita.
 
-![Fotografia de referência usada na página inicial](wp-content/themes/eso-arquitetura/assets/images/casa-horizonte.jpg)
+![Página inicial da ESO Arquitetura no desktop](docs/screenshots/home-desktop.png)
 
-## O projeto
+## O que o site oferece
 
-A proposta visual usa fotografia, tipografia e uma grade editorial para apresentar o escritório sem depender de um tema pronto. A home reúne os projetos, as áreas de atuação e um resumo do processo de trabalho. Há também páginas de Sobre, Serviços, Contato, Política de Privacidade e uma página para cada projeto.
+- **Portfólio fácil de explorar:** projetos em uma grade visual, cada um com página própria, descrição e dados como tipo, localização, ano e área.
+- **Serviços bem apresentados:** páginas de serviços e áreas de atuação para o visitante entender o que o escritório faz antes de entrar em contato.
+- **Contato direto:** formulário com validação e proteção contra envios repetidos, além de um link de WhatsApp quando o número estiver configurado.
+- **Conteúdo editável:** projetos, serviços, áreas de atuação e imagens podem ser atualizados pelo painel do WordPress.
+- **Experiência em celular:** navegação, imagens e seções adaptadas a telas menores.
 
-Os sete projetos do portfólio são estudos conceituais. As fotos servem como referência visual e não representam obras executadas pela ESO. Os créditos e as fontes estão em [docs/imagens.md](docs/imagens.md).
+### Projetos
 
-## Rodar localmente
+![Seção de projetos na página inicial](docs/screenshots/projects-desktop.png)
 
-1. Crie um site chamado `eso-arquitetura` no [Local](https://localwp.com/) e conclua a instalação do WordPress.
-2. Copie `wp-content/themes/eso-arquitetura` deste repositório para a pasta `app/public/wp-content/themes/` do site no Local. Faça o mesmo com `wp-content/plugins/eso-core`, copiando para `app/public/wp-content/plugins/`.
-3. No painel do WordPress, ative o tema **ESO Arquitetura** e o plugin **ESO Core**. O plugin cria as páginas e o conteúdo inicial, incluindo os sete projetos.
+### Versão mobile
+
+<img src="docs/screenshots/home-mobile.png" alt="Página inicial da ESO Arquitetura em um celular" width="390">
+
+## Sobre este projeto
+
+O site está implementado e funciona no ambiente Local. Os sete projetos exibidos são estudos conceituais usados para mostrar a experiência do portfólio. As fotografias são referências visuais licenciadas, não obras executadas pela ESO; os [créditos das imagens](docs/imagens.md) estão documentados.
+
+Criei um tema próprio para a interface e um plugin para os tipos de conteúdo e o formulário. O projeto usa PHP, CSS e JavaScript, sem page builder. O formulário envia as mensagens pelo `wp_mail`; no Local, elas podem ser conferidas no Mailpit.
+
+<details>
+<summary>Como executar no Local</summary>
+
+1. Crie um site chamado `eso-arquitetura` no [Local](https://localwp.com/) e instale o WordPress.
+2. Copie `wp-content/themes/eso-arquitetura` para `app/public/wp-content/themes/` e `wp-content/plugins/eso-core` para `app/public/wp-content/plugins/` dentro da pasta do site.
+3. No painel do WordPress, ative o tema **ESO Arquitetura** e o plugin **ESO Core**. O plugin cria as páginas e o conteúdo inicial.
 4. Em **Configurações → Links permanentes**, selecione **Nome do post** e salve.
 
-O banco de dados, os uploads e o próprio WordPress ficam na instalação do Local; este repositório guarda o tema, o plugin e a documentação. O endereço `eso-arquitetura.local` funciona na máquina em que o site foi criado e enquanto estiver iniciado no Local.
+O repositório contém o tema, o plugin e a documentação. O WordPress, o banco de dados e os uploads ficam na instalação local.
 
-## Conteúdo e contato
+</details>
 
-Projetos, serviços e áreas de atuação podem ser editados no painel. Cada projeto aceita imagem destacada, galeria e dados como tipo, localização, ano e área. Se não houver imagem destacada, o tema usa uma das fotos incluídas no repositório. Os textos principais das páginas fixas estão nos templates PHP.
-
-O formulário valida os dados no navegador e no servidor, limita envios repetidos e usa `wp_mail`. No Local, os e-mails de teste aparecem no **Mailpit**. Antes de publicar o site, configure a entrega de e-mails, informe os contatos reais em **Aparência → Personalizar → ESO · Contato** e revise a Política de Privacidade para o uso pretendido.
-
-## Código
-
-- `wp-content/themes/eso-arquitetura/` — templates, estilos, scripts e imagens.
-- `wp-content/plugins/eso-core/` — tipos de conteúdo, dados iniciais e processamento do formulário.
-- `docs/` — referências visuais e créditos das fotografias.
-
-O projeto usa PHP, CSS e JavaScript, sem page builder. A formatação dos arquivos PHP segue o padrão de código do WordPress; CSS e JavaScript seguem Prettier.
+Para publicar em um domínio, ainda é preciso configurar a entrega dos e-mails, informar os contatos definitivos e revisar a Política de Privacidade conforme o uso real do formulário.
