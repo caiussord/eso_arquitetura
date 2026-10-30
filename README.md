@@ -45,4 +45,3 @@ O repositório contém o tema, o plugin e a documentação. O WordPress, o banco
 
 </details>
 
-Para publicar em um domínio, ainda é preciso configurar a entrega dos e-mails, informar os contatos definitivos e revisar a Política de Privacidade conforme o uso real do formulário.
