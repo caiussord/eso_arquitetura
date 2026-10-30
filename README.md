@@ -24,7 +24,14 @@ Site institucional de arquitetura feito em WordPress. A ideia foi criar uma pres
 
 O site está implementado e funciona no ambiente Local. Os sete projetos exibidos são estudos conceituais usados para mostrar a experiência do portfólio. As fotografias são referências visuais licenciadas, não obras executadas pela ESO; os [créditos das imagens](docs/imagens.md) estão documentados.
 
-Criei um tema próprio para a interface e um plugin para os tipos de conteúdo e o formulário. O projeto usa PHP, CSS e JavaScript, sem page builder. O formulário envia as mensagens pelo `wp_mail`; no Local, elas podem ser conferidas no Mailpit.
+Criei um tema próprio para a interface e um plugin para os tipos de conteúdo e o formulário, sem usar page builder.
+
+## Tecnologias
+
+- **WordPress:** gerenciamento de páginas, projetos, serviços e imagens.
+- **PHP:** templates do tema, plugin próprio e processamento do formulário.
+- **HTML5, CSS3 e JavaScript:** estrutura, visual responsivo e interações da interface.
+- **Local e Mailpit:** ambiente de desenvolvimento e verificação dos e-mails enviados pelo `wp_mail`.
 
 <details>
 <summary>Como executar no Local</summary>
