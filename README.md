@@ -12,17 +12,20 @@ Site institucional demonstrativo para um escritório **fictício** de arquitetur
 - Formulário com validação no navegador e servidor, nonce, campo antispam, limite de frequência e envio via `wp_mail`.
 - Navegação mobile, accordion com HTML nativo, foco visível, metadados básicos e suporte a movimento reduzido.
 
-## Executar localmente
+## Executar no Local (recomendado)
 
-Requer Docker Desktop com o mecanismo Linux ativo.
+1. No aplicativo **Local**, clique em **Create a new site**. Nomeie o site `eso-arquitetura`, escolha **Preferred** e crie o usuário administrador do WordPress.
+2. Abra **Go to site folder** no Local. Dentro de `app/public/wp-content/`, copie a pasta `wp-content/themes/eso-arquitetura` deste repositório para `themes/` e a pasta `wp-content/plugins/eso-core` para `plugins/`.
+3. Clique em **WP Admin** no Local. Ative o tema **ESO Arquitetura** em **Aparência → Temas** e o plugin **ESO Core** em **Plugins**. A ativação do plugin cria a página inicial, três projetos, quatro serviços e três áreas de atuação.
+4. Em **Configurações → Links permanentes**, escolha **Nome do post** e salve. Use **Open site** no Local para revisar o resultado.
 
-1. Copie `.env.example` para `.env` e troque as duas senhas.
-2. Execute `docker compose up -d` na raiz do projeto.
-3. Acesse `http://localhost:8080` e conclua a instalação do WordPress.
-4. No painel, ative o tema **ESO Arquitetura** e o plugin **ESO Core**. A ativação do plugin cria a página inicial, os serviços, as áreas de atuação e os cases.
-5. Em **Configurações → Links permanentes**, escolha **Nome do post** e salve.
+Para verificar mensagens de teste, abra **Tools → Mailpit → Open Mailpit** no Local. A [documentação do Local](https://localwp.com/help-docs/local-features/mailpit/) confirma que o Mailpit captura as mensagens enviadas por `wp_mail()` neste ambiente. Em produção, configure um provedor SMTP transacional real.
 
-O ambiente local inclui o Mailpit em `http://localhost:8025` para visualizar mensagens de teste. O plugin usa esse SMTP somente quando a variável `ESO_SMTP_HOST` está definida. Em produção, configure um provedor transacional real.
+O código do tema e do plugin fica neste repositório. Se você alterar arquivos aqui depois de copiá-los para o Local, copie-os novamente para a instalação ou use uma ligação de diretório entre as duas pastas.
+
+### Ambiente Docker anterior (opcional)
+
+O `compose.yaml` preserva o ambiente usado para a primeira verificação. Para iniciá-lo, copie `.env.example` para `.env`, troque as senhas e execute `docker compose up -d`. Ele serve em `http://localhost:8080` e usa Mailpit em `http://localhost:8025`. O Local é o fluxo recomendado para continuar o projeto.
 
 As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca do WordPress, use **Imagem destacada** em cada projeto. O texto, metadados e galerias são editáveis no painel. A Política de Privacidade pode ser substituída pelo editor da página. As demais páginas fixas possuem templates próprios; a edição do texto principal delas requer adaptação dos templates.
 
@@ -40,4 +43,4 @@ As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca 
 - `wp-content/plugins/eso-core/`: dados estruturados e endpoint do formulário.
 - `docs/`: referências de conteúdo e licenças das imagens.
 
-O core do WordPress, banco, uploads e segredos não são versionados. O site foi executado e verificado localmente em `http://localhost:8080`; esse endereço só funciona nesta máquina. Ainda não há link público nem capturas da interface versionadas. A instalação local de teste usa o usuário `eso-admin` e guarda a senha gerada em `.env` (arquivo ignorado pelo Git).
+O core do WordPress, banco, uploads e segredos não são versionados. A primeira verificação foi feita no ambiente Docker local; o site ainda precisa ser criado e conferido no Local. Ainda não há link público nem capturas da interface versionadas. A instalação Docker de teste usa o usuário `eso-admin` e guarda a senha gerada em `.env` (arquivo ignorado pelo Git).
