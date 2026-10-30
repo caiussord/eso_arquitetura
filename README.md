@@ -1,44 +1,34 @@
 # ESO Arquitetura
 
-Site institucional demonstrativo para um escritório **fictício** de arquitetura. Os três projetos são estudos conceituais; as fotografias são referências licenciadas e não representam obras executadas pela ESO.
+Site institucional em WordPress para a ESO Arquitetura. Desenvolvi um tema próprio para a interface e um plugin para organizar projetos, serviços, áreas de atuação e o formulário de contato. O site já funciona no Local e pode ser editado pelo painel do WordPress.
 
-![Capa fotográfica de referência do projeto ESO](wp-content/themes/eso-arquitetura/assets/images/casa-horizonte.jpg)
+![Fotografia de referência usada na página inicial](wp-content/themes/eso-arquitetura/assets/images/casa-horizonte.jpg)
 
-## O que foi implementado
+## O projeto
 
-- Tema WordPress próprio em PHP, HTML, CSS e JavaScript, com home editorial e páginas Sobre, Serviços, Projetos, Contato, Privacidade e 404.
-- Plugin `eso-core` com tipos de publicação para projetos, serviços e áreas de atuação. A ativação cria conteúdo demonstrativo editável pelo painel.
-- Três cases fictícios identificados, metadados editáveis e imagem destacada opcional. Sem imagem destacada, o tema usa uma fotografia licenciada local.
-- Formulário com validação no navegador e servidor, nonce, campo antispam, limite de frequência e envio via `wp_mail`.
-- Navegação mobile, accordion com HTML nativo, foco visível, metadados básicos e suporte a movimento reduzido.
+A proposta visual usa fotografia, tipografia e uma grade editorial para apresentar o escritório sem depender de um tema pronto. A home reúne os projetos, as áreas de atuação e um resumo do processo de trabalho. Há também páginas de Sobre, Serviços, Contato, Política de Privacidade e uma página para cada projeto.
 
-## Executar no Local (recomendado)
+Os sete projetos do portfólio são estudos conceituais. As fotos servem como referência visual e não representam obras executadas pela ESO. Os créditos e as fontes estão em [docs/imagens.md](docs/imagens.md).
 
-1. No aplicativo **Local**, clique em **Create a new site**. Nomeie o site `eso-arquitetura`, escolha **Preferred** e crie o usuário administrador do WordPress.
-2. Abra **Go to site folder** no Local. Dentro de `app/public/wp-content/`, copie a pasta `wp-content/themes/eso-arquitetura` deste repositório para `themes/` e a pasta `wp-content/plugins/eso-core` para `plugins/`.
-3. Clique em **WP Admin** no Local. Ative o tema **ESO Arquitetura** em **Aparência → Temas** e o plugin **ESO Core** em **Plugins**. A ativação do plugin cria a página inicial, três projetos, quatro serviços e três áreas de atuação.
-4. Em **Configurações → Links permanentes**, escolha **Nome do post** e salve. Use **Open site** no Local para revisar o resultado.
+## Rodar localmente
 
-Para verificar mensagens de teste, abra **Tools → Mailpit → Open Mailpit** no Local. A [documentação do Local](https://localwp.com/help-docs/local-features/mailpit/) confirma que o Mailpit captura as mensagens enviadas por `wp_mail()` neste ambiente. Em produção, configure um provedor SMTP transacional real.
+1. Crie um site chamado `eso-arquitetura` no [Local](https://localwp.com/) e conclua a instalação do WordPress.
+2. Copie `wp-content/themes/eso-arquitetura` deste repositório para a pasta `app/public/wp-content/themes/` do site no Local. Faça o mesmo com `wp-content/plugins/eso-core`, copiando para `app/public/wp-content/plugins/`.
+3. No painel do WordPress, ative o tema **ESO Arquitetura** e o plugin **ESO Core**. O plugin cria as páginas e o conteúdo inicial, incluindo os sete projetos.
+4. Em **Configurações → Links permanentes**, selecione **Nome do post** e salve.
 
-O código do tema e do plugin fica neste repositório. Em outra instalação do Local, copie novamente as pastas após cada alteração ou crie ligações de diretório para manter o código sincronizado.
+O banco de dados, os uploads e o próprio WordPress ficam na instalação do Local; este repositório guarda o tema, o plugin e a documentação. O endereço `eso-arquitetura.local` funciona na máquina em que o site foi criado e enquanto estiver iniciado no Local.
 
-**Nesta máquina**, o site `eso-arquitetura` já foi criado no Local. As pastas do tema e do plugin estão ligadas diretamente ao repositório, o tema e o plugin estão ativos, o WordPress está em português do Brasil e os links permanentes foram configurados. Abra `http://eso-arquitetura.local/` enquanto o site estiver iniciado no Local. A senha do administrador é a que foi definida durante a criação do site no aplicativo.
+## Conteúdo e contato
 
-As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca do WordPress, use **Imagem destacada** em cada projeto. O texto, metadados e galerias são editáveis no painel. A Política de Privacidade pode ser substituída pelo editor da página. As demais páginas fixas possuem templates próprios; a edição do texto principal delas requer adaptação dos templates.
+Projetos, serviços e áreas de atuação podem ser editados no painel. Cada projeto aceita imagem destacada, galeria e dados como tipo, localização, ano e área. Se não houver imagem destacada, o tema usa uma das fotos incluídas no repositório. Os textos principais das páginas fixas estão nos templates PHP.
 
-## Preparar para publicação
+O formulário valida os dados no navegador e no servidor, limita envios repetidos e usa `wp_mail`. No Local, os e-mails de teste aparecem no **Mailpit**. Antes de publicar o site, configure a entrega de e-mails, informe os contatos reais em **Aparência → Personalizar → ESO · Contato** e revise a Política de Privacidade para o uso pretendido.
 
-- Configure um plugin SMTP transacional confiável e teste a entrega real do formulário. `wp_mail` retornar sucesso não garante recebimento.
-- Configure o e-mail administrativo e, em **Aparência → Personalizar → ESO · Contato**, o e-mail público e o número de WhatsApp real. Sem número configurado, o link de WhatsApp permanece oculto.
-- Revise a Política de Privacidade conforme o provedor de e-mail e o tratamento real dos dados; a versão inclusa é um ponto de partida demonstrativo.
-- Configure HTTPS, backups, atualizações e a política de retenção de e-mail no ambiente de produção.
-- Execute verificações de acessibilidade, desempenho e SEO no domínio publicado. As metas de Lighthouse do briefing ainda não foram medidas.
+## Código
 
-## Estrutura
+- `wp-content/themes/eso-arquitetura/` — templates, estilos, scripts e imagens.
+- `wp-content/plugins/eso-core/` — tipos de conteúdo, dados iniciais e processamento do formulário.
+- `docs/` — referências visuais e créditos das fotografias.
 
-- `wp-content/themes/eso-arquitetura/`: apresentação e templates.
-- `wp-content/plugins/eso-core/`: dados estruturados e endpoint do formulário.
-- `docs/`: referências de conteúdo e licenças das imagens.
-
-O core do WordPress, banco, uploads e segredos não são versionados. A instalação no Local foi verificada em `http://eso-arquitetura.local/`, incluindo a entrega de uma mensagem fictícia ao Mailpit. Ainda não há link público nem capturas da interface versionadas.
+O projeto usa PHP, CSS e JavaScript, sem page builder. A formatação dos arquivos PHP segue o padrão de código do WordPress; CSS e JavaScript seguem Prettier.
