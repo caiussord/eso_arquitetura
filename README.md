@@ -21,7 +21,9 @@ Site institucional demonstrativo para um escritório **fictício** de arquitetur
 
 Para verificar mensagens de teste, abra **Tools → Mailpit → Open Mailpit** no Local. A [documentação do Local](https://localwp.com/help-docs/local-features/mailpit/) confirma que o Mailpit captura as mensagens enviadas por `wp_mail()` neste ambiente. Em produção, configure um provedor SMTP transacional real.
 
-O código do tema e do plugin fica neste repositório. Se você alterar arquivos aqui depois de copiá-los para o Local, copie-os novamente para a instalação ou use uma ligação de diretório entre as duas pastas.
+O código do tema e do plugin fica neste repositório. Em outra instalação do Local, copie novamente as pastas após cada alteração ou crie ligações de diretório para manter o código sincronizado.
+
+**Nesta máquina**, o site `eso-arquitetura` já foi criado no Local. As pastas do tema e do plugin estão ligadas diretamente ao repositório, o tema e o plugin estão ativos, o WordPress está em português do Brasil e os links permanentes foram configurados. Abra `http://eso-arquitetura.local/` enquanto o site estiver iniciado no Local. A senha do administrador é a que foi definida durante a criação do site no aplicativo.
 
 ### Ambiente Docker anterior (opcional)
 
@@ -43,4 +45,4 @@ As imagens padrão ficam no tema. Para substituí-las por imagens da biblioteca 
 - `wp-content/plugins/eso-core/`: dados estruturados e endpoint do formulário.
 - `docs/`: referências de conteúdo e licenças das imagens.
 
-O core do WordPress, banco, uploads e segredos não são versionados. A primeira verificação foi feita no ambiente Docker local; o site ainda precisa ser criado e conferido no Local. Ainda não há link público nem capturas da interface versionadas. A instalação Docker de teste usa o usuário `eso-admin` e guarda a senha gerada em `.env` (arquivo ignorado pelo Git).
+O core do WordPress, banco, uploads e segredos não são versionados. A instalação no Local foi verificada em `http://eso-arquitetura.local/`, incluindo a entrega de uma mensagem fictícia ao Mailpit. Ainda não há link público nem capturas da interface versionadas. A instalação Docker anterior usa o usuário `eso-admin` e guarda a senha gerada em `.env` (arquivo ignorado pelo Git).
